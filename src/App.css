@@ -336,6 +336,30 @@ input[type="text"] {
   scale: 110%;
 }
 
+.faucet button {
+  font-size: 14px;
+  width: 100%;
+}
+
+.pns {
+  position: fixed;
+  right: 24px;
+  width: 15%;
+}
+
+.pns input {
+  width: 130px;
+  margin-top: 14px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pns button {
+  font-size: 14px;
+  margin: 7px;
+  width: 150px;
+}
+
 .gradient-animation {
   background: linear-gradient(-45deg, #25274d, #007991, #0e918c, #00bf8f);
   background-size: 400% 400%;
