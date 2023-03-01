@@ -4,6 +4,7 @@ import './App.css';
 import { ethers } from "ethers";
 import chatABI from './chatABI.json';
 import PNS_ABI from "./PNS.json";
+import faucet from './FaucetABI.json';
 
 import ethLogo from './imgs/ethLogo.png';
 import aaveLogo from './imgs/aaveLogo.png';
@@ -32,9 +33,10 @@ function App() {
   const [pubName, setPubName] = useState("");
 
   const [ethPrice, setPrice] = useState(""); 
-  const [gas, setGas] = useState("")
+  const [gas, setGas] = useState("");
 
-  const [amount, setAmount] = useState("")
+  const [amount, setAmount] = useState("");
+  const [claimResult, setClaimResult] = useState(null);
 
   const connect = async () => {
     try {
@@ -184,6 +186,19 @@ function App() {
     setAmount(event.target.value)
   }
 
+  const claim = async () => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const signer = provider.getSigner();
+      const claimAddress = "0x84ccD962841e83B0C665588030A713f77D9700be";
+      const contract = new ethers.Contract(claimAddress, faucet, signer);
+      const result = await contract.claim();
+      setClaimResult(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="App">
@@ -236,6 +251,10 @@ function App() {
             <button onClick={tip}>tip pub</button>
             <input onChange={handleChange} placeholder='amount'>
             </input>
+            </div>
+
+            <div className="faucet">
+            <button onClick={claim}>sepolia faucet</button>
             </div>
           </>
         )}
