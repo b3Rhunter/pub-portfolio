@@ -325,6 +325,17 @@ input[type="text"] {
   border-radius: 7px;
 }
 
+.faucet {
+  position: fixed;
+  right: 24px;
+  bottom: 48px;
+  transition: 0.2s;
+}
+
+.faucet:hover {
+  scale: 110%;
+}
+
 .gradient-animation {
   background: linear-gradient(-45deg, #25274d, #007991, #0e918c, #00bf8f);
   background-size: 400% 400%;
