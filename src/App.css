@@ -229,14 +229,14 @@ input[type="text"] {
 
 .ethPrice {
   position: fixed;
-  bottom: 10px;
+  bottom: 24px;
   left: 24px;
   z-index: 0;
 }
 
 .gas {
   position: fixed;
-  bottom: 10px;
+  bottom: 24px;
   right: 24px;
   z-index: 0;
 }
@@ -313,7 +313,7 @@ input[type="text"] {
 
 .tip {
   position: absolute;
-  bottom: 10px;
+  bottom: 24px;
 }
 
 .tip input {
@@ -330,22 +330,6 @@ input[type="text"] {
   font-size: 14px;
   font-family: monospace;
   border-radius: 7px;
-}
-
-.faucet {
-  position: fixed;
-  right: 24px;
-  bottom: 48px;
-  transition: 0.2s;
-}
-
-.faucet:hover {
-  scale: 110%;
-}
-
-.faucet button {
-  font-size: 14px;
-  width: 100%;
 }
 
 .pns {
