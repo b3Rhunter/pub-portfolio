@@ -181,9 +181,13 @@ input[type="text"] {
   position: fixed;
   left: -2px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   z-index: 100;
+}
+
+.chat input {
+  width: 80%;
 }
 
 .closeChatBtn {
@@ -243,6 +247,7 @@ input[type="text"] {
 
 .content {
   display: flex;
+  transition: 0.2s;
 }
 
 .uniswap {
@@ -349,6 +354,8 @@ input[type="text"] {
   font-size: 14px;
   margin: 7px;
   width: 150px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .contentContainer {
@@ -376,6 +383,17 @@ input[type="text"] {
   width: 100%;
 }
 
+.label {
+  text-align: left;
+  margin-left: 24px;
+}
+
+.line {
+  width: 99%;
+  position: fixed;
+  top: 75px;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -398,4 +416,97 @@ input[type="text"] {
   100% {
     background-color: rgba(0, 0, 0, 0);
   }
+}
+
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Adjust font size for smaller screens */
+
+  .content {
+    width: 100%;
+    display: block;
+    margin: auto;
+
+  }
+
+  .connect-button, .disconnect-button {
+    top: 50px;
+    right: 75px;
+  }
+
+  .chatBtn {
+    top: 56px;
+    left: 75px;
+  }
+
+  .line {
+    top: 100px;
+  }
+
+  .contentContainer {
+    margin-top: 48px;
+    height: 425px;
+    text-align: center;
+    width: 90%;
+  }
+
+  .cont {
+    margin: 24px;
+  }
+
+  .uniswap {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+  
+  .aave {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+  
+  .eth {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .label {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .tip {
+    bottom: 42px;
+  }
+
+  .gas {
+    bottom: 14px;
+  }
+
+  .ethPrice {
+    bottom: 14px;
+  }
+
+  .chat {
+    width: 80%;
+  }
+
+  .pns {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: fixed;
+    right: -1px;
+    z-index: 1;
+    padding: 14px;
+    border: 1px solid #fff;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+  }
+
 }

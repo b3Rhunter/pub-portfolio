@@ -59,8 +59,9 @@ function App() {
         const displayAddress = address?.substr(0, 6) + "...";
         const pnsContract = new ethers.Contract(PNS_ADDRESS, PNS_ABI, signer);
         const pns = await pnsContract.getPrimaryDomain(address);
+        console.log(pns)
         getGasPrice()
-        if (pns !== null) {
+        if (pns !== "") {
           setPubName(pns)
         } else {
           setPubName(displayAddress)
@@ -177,8 +178,10 @@ function App() {
     const signer = await provider.getSigner();
     const address = "0xBC72198d65075Fdad2CA7B8db79EfF5B51c8B30D"
     const amountInWei = ethers.utils.parseEther(amount);
-    const tx = signer.sendTransaction({ to: address, value: amountInWei });
-    console.log(tx)
+    const tx = await signer.sendTransaction({ to: address, value: amountInWei });
+    const receipt = await tx.wait(1);
+    console.log(receipt);
+    alert("thank you 🙏");
   }
 
   const handleChange = (event) => {
@@ -228,7 +231,7 @@ function App() {
       <header className="App-header">
 
         <h1 className="title">pub-gmn.eth</h1>
-        <hr style={{ width: "99%", position: "fixed", top: "75px" }} />
+        <hr className="line" />
         {!connected && (
           <button className="connect-button" onClick={connect}>connect</button>
         )}
@@ -277,21 +280,20 @@ function App() {
             </div>
 
             <div className="pns">
-              <div>
+              <div className="registerPub">
                 <form onSubmit={handleRegisterDomain}>
                   <input
                     type="text"
                     placeholder="register pns"
                     value={domainName}
                     onChange={(event) => setDomainName(event.target.value)} />
-                  <br />
                   <button className="registerButtons" type="submit">claim .pub</button>
                 </form>
               </div>
 
               <br />
 
-              <div>
+              <div className="primaryPub">
                 <form onSubmit={handleSetPrimaryDomain}>
                   <input
                     type="text"
@@ -299,7 +301,6 @@ function App() {
                     value={primaryName}
                     onChange={(event) => setPrimary(event.target.value)}
                   />
-                  <br />
                   <button className="registerButtons" type="submit">set primary</button>
                 </form>
               </div>
@@ -308,60 +309,78 @@ function App() {
         )}
 
         <div className="contentContainer hideScroll">
-          <h3 style={{ paddingLeft: "24px" }}>pub's picks...</h3>
+          <h3 className="label">pub's picks...</h3>
           <div className="content">
+            <div className="cont">
             <div className="uniswap">
               <a href="https://app.uniswap.org/#/swap" target="_blank" rel="noreferrer">
                 <img className="logo" src={uniswapLogo} alt="uniswap" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="aave">
               <a href="https://app.aave.com/?marketName=proto_mainnet" target="_blank" rel="noreferrer">
                 <img className="logo" src={aaveLogo} alt="aave" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="eth">
               <a href="https://ethereum.org/en/" target="_blank" rel="noreferrer">
                 <img className="logo" src={ethLogo} alt="ethereum.org" />
               </a>
             </div>
+            </div>
           </div>
 
-          <h3 style={{ paddingLeft: "24px" }}>pub's projects...</h3>
+          <h3 className="label">pub's projects...</h3>
           <div className="content">
+          <div className="cont">
             <div className="uniswap">
               <a href="https://goodmorningnews.club" target="_blank" rel="noreferrer">
                 <img className="logo" src={gmnLogo} alt="gmn" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="aave">
               <a href="https://www.banklesspublishing.xyz/" target="_blank" rel="noreferrer">
                 <img className="logo" src={bpLogo} alt="bankless publishing" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="eth">
               <a href="https://blockchainlawyers.group/" target="_blank" rel="noreferrer">
                 <img className="logo" src={blgLogo} alt="ethereum.org" />
               </a>
             </div>
+            </div>
           </div>
 
-          <h3 style={{ paddingLeft: "24px" }}>pub's prototypes...</h3>
+          <h3 className="label">pub's prototypes...</h3>
           <div className="content">
+          <div className="cont">
             <div className="uniswap">
               <a href="https://bank-of-ethereum-v2.vercel.app/" target="_blank" rel="noreferrer">
                 <img className="logo" src={boeLogo} alt="bank of ethereum" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="aave">
               <a href="https://work-in-progress.vercel.app/" target="_blank" rel="noreferrer">
                 <img className="logo" src={mandalorLogo} alt="aave" />
               </a>
             </div>
+            </div>
+            <div className="cont">
             <div className="eth">
               <a href="https://react-with-ethereum.vercel.app/" target="_blank" rel="noreferrer">
                 <img className="logo" src={rweLogo} alt="ethereum.org" />
               </a>
+            </div>
             </div>
           </div>
         </div>
