@@ -1,0 +1,344 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background: linear-gradient(-45deg, #282628, #1b2121, #261929, #1f0034);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.title {
+  position: absolute;
+  top: -15px;
+  font-family: monospace;
+}
+
+.connect-button, .disconnect-button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 24px;
+  transition: 0.2s;
+}
+
+.connect-button:hover, .disconnect-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  scale: 110%;
+}
+
+.connect-button:active, .disconnect-button:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  scale: 115%;
+}
+
+.message-container {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 75vh;
+  overflow-y: scroll;
+  padding: 24px;
+}
+
+.message-box {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  align-items: flex-start;
+  color: #fff;
+}
+
+.message-sender {
+  font-size: 1vw;
+  font-weight: bold;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  text-align: left;
+  width: 100%;
+  border-right: 1px solid #fff;
+  word-wrap: break-word;
+}
+
+.message-text {
+  font-size: 1vw;
+  word-wrap: break-word;
+  text-align: justify;
+  margin-left: 24px;
+  width: 80%;
+}
+
+.input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  width: 350px;
+  color: #fff;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.send-button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  transition: 0.2s;
+}
+
+.send-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  scale: 110%;
+}
+
+.send-button:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  scale: 115%;
+}
+
+.show-chat-button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #ffff;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  left: 24px;
+  transition: 0.2s;
+}
+
+.show-chat-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  scale: 110%;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.chat {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 50%;
+  border: 1px solid #fff;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  position: fixed;
+  left: -2px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100;
+}
+
+.closeChatBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
+  padding: 5px 10px;
+  padding-top: 6px;
+  line-height: 1.1;
+  border-radius: 3px;
+}
+
+.closeChatBtn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.closeChatBtn:active {
+  scale: 110%;
+}
+
+.chatBtn {
+  position: fixed;
+  top: 10px;
+  left: 24px;
+  transition: 0.2s;
+}
+
+.chatBtn:hover {
+  background-color:rgba(255, 255, 255, 0.1);
+  scale: 110%;
+}
+
+.chatBtn:active {
+  background-color:rgba(255, 255, 255, 0.1);
+  scale: 115%;
+}
+
+.ethPrice {
+  position: fixed;
+  bottom: 10px;
+  left: 24px;
+  z-index: 0;
+}
+
+.gas {
+  position: fixed;
+  bottom: 10px;
+  right: 24px;
+  z-index: 0;
+}
+
+.content {
+  display: flex;
+}
+
+.uniswap {
+  margin: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.aave {
+  margin: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.eth {
+  margin: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.logo {
+  width: 80%;
+  margin: auto;
+  padding: 14px 14px;
+}
+
+.uniswap:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  scale: 110%;
+}
+
+.aave:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  scale: 110%;
+}
+
+.eth:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  scale: 110%;
+}
+
+.uniswap:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  scale: 115%;
+}
+
+.aave:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  scale: 115%;
+}
+
+.eth:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  scale: 115%;
+}
+
+.tip {
+  position: absolute;
+  bottom: 10px;
+}
+
+.tip input {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  padding: 7px 14px;
+  text-align: center;
+  margin-left: 14px;
+  width: 75px;
+  border-radius: 7px;
+}
+
+.tip button {
+  font-size: 14px;
+  font-family: monospace;
+  border-radius: 7px;
+}
+
+.gradient-animation {
+  background: linear-gradient(-45deg, #25274d, #007991, #0e918c, #00bf8f);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
