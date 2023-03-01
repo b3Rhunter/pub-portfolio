@@ -156,12 +156,12 @@ input[type="text"] {
   scale: 110%;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
+.hideScroll::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.example {
+.hideScroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -275,32 +275,32 @@ input[type="text"] {
 }
 
 .uniswap:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   scale: 110%;
 }
 
 .aave:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   scale: 110%;
 }
 
 .eth:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   scale: 110%;
 }
 
 .uniswap:active {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0);
   scale: 115%;
 }
 
 .aave:active {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0);
   scale: 115%;
 }
 
 .eth:active {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0);
   scale: 115%;
 }
 
@@ -360,10 +360,29 @@ input[type="text"] {
   width: 150px;
 }
 
+.contentContainer {
+  margin-top: 24px;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #fff;
+  border-radius: 14px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: monospace;
+  text-align: left;
+}
+
 .gradient-animation {
   background: linear-gradient(-45deg, #25274d, #007991, #0e918c, #00bf8f);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
+}
+
+.projects {
+  width: 100%;
+}
+
+.picks {
+  width: 100%;
 }
 
 @keyframes gradient {

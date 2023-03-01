@@ -4,7 +4,6 @@ import './App.css';
 import { ethers } from "ethers";
 import chatABI from './chatABI.json';
 import PNS_ABI from "./PNS.json";
-import faucet from './FaucetABI.json';
 
 import ethLogo from './imgs/ethLogo.png';
 import aaveLogo from './imgs/aaveLogo.png';
@@ -12,6 +11,9 @@ import uniswapLogo from './imgs/uniswapLogo.png';
 import gmnLogo from './imgs/gmnGif.gif';
 import bpLogo from './imgs/bpLogo.png';
 import blgLogo from './imgs/blg.png';
+import boeLogo from './imgs/boeLogo.png';
+import mandalorLogo from './imgs/mandalorLogo.png';
+import rweLogo from './imgs/rweLogo.png';
 
 const CHAT_CONTRACT_ADDRESS = "0x85ecbF67C84171E87E78c1e6E77FF1288aeD3D49";
 const PNS_ADDRESS = "0xF0Ff09E226503Ec632e8C59184E2593cB051Bd3b";
@@ -226,7 +228,7 @@ function App() {
       <header className="App-header">
 
         <h1 className="title">pub-gmn.eth</h1>
-        <hr style={{ width: "99%" }} />
+        <hr style={{ width: "99%", position: "fixed", top: "75px" }} />
         {!connected && (
           <button className="connect-button" onClick={connect}>connect</button>
         )}
@@ -245,7 +247,7 @@ function App() {
 
               <>
                 <div className="chat">
-                  <div className="message-container example">{renderedMessages}</div>
+                  <div className="message-container hideScroll">{renderedMessages}</div>
                   <div className="input-container">
                     <input
                       type="text"
@@ -275,67 +277,92 @@ function App() {
             </div>
 
             <div className="pns">
-            <div>
-              <form onSubmit={handleRegisterDomain}>
-                <input
-                  type="text"
-                  placeholder="register pns"
-                  value={domainName}
-                  onChange={(event) => setDomainName(event.target.value)} />
-                <br />
-                <button className="registerButtons" type="submit">claim .pub</button>
-              </form>
-            </div>
+              <div>
+                <form onSubmit={handleRegisterDomain}>
+                  <input
+                    type="text"
+                    placeholder="register pns"
+                    value={domainName}
+                    onChange={(event) => setDomainName(event.target.value)} />
+                  <br />
+                  <button className="registerButtons" type="submit">claim .pub</button>
+                </form>
+              </div>
 
-            <br />
+              <br />
 
-            <div>
-              <form onSubmit={handleSetPrimaryDomain}>
-                <input
-                  type="text"
-                  placeholder="me.pub"
-                  value={primaryName}
-                  onChange={(event) => setPrimary(event.target.value)}
-                />
-                <br />
-                <button className="registerButtons" type="submit">set primary</button>
-              </form>
-            </div>
+              <div>
+                <form onSubmit={handleSetPrimaryDomain}>
+                  <input
+                    type="text"
+                    placeholder="me.pub"
+                    value={primaryName}
+                    onChange={(event) => setPrimary(event.target.value)}
+                  />
+                  <br />
+                  <button className="registerButtons" type="submit">set primary</button>
+                </form>
+              </div>
             </div>
           </>
         )}
-        <div className="content">
-          <div className="uniswap">
-            <a href="https://app.uniswap.org/#/swap" target="_blank" rel="noreferrer">
-              <img className="logo" src={uniswapLogo} alt="uniswap" />
-            </a>
+
+        <div className="contentContainer hideScroll">
+          <h3 style={{ paddingLeft: "24px" }}>pub's picks...</h3>
+          <div className="content">
+            <div className="uniswap">
+              <a href="https://app.uniswap.org/#/swap" target="_blank" rel="noreferrer">
+                <img className="logo" src={uniswapLogo} alt="uniswap" />
+              </a>
+            </div>
+            <div className="aave">
+              <a href="https://app.aave.com/?marketName=proto_mainnet" target="_blank" rel="noreferrer">
+                <img className="logo" src={aaveLogo} alt="aave" />
+              </a>
+            </div>
+            <div className="eth">
+              <a href="https://ethereum.org/en/" target="_blank" rel="noreferrer">
+                <img className="logo" src={ethLogo} alt="ethereum.org" />
+              </a>
+            </div>
           </div>
-          <div className="aave">
-            <a href="https://app.aave.com/?marketName=proto_mainnet" target="_blank" rel="noreferrer">
-              <img className="logo" src={aaveLogo} alt="aave" />
-            </a>
+
+          <h3 style={{ paddingLeft: "24px" }}>pub's projects...</h3>
+          <div className="content">
+            <div className="uniswap">
+              <a href="https://goodmorningnews.club" target="_blank" rel="noreferrer">
+                <img className="logo" src={gmnLogo} alt="gmn" />
+              </a>
+            </div>
+            <div className="aave">
+              <a href="https://www.banklesspublishing.xyz/" target="_blank" rel="noreferrer">
+                <img className="logo" src={bpLogo} alt="bankless publishing" />
+              </a>
+            </div>
+            <div className="eth">
+              <a href="https://blockchainlawyers.group/" target="_blank" rel="noreferrer">
+                <img className="logo" src={blgLogo} alt="ethereum.org" />
+              </a>
+            </div>
           </div>
-          <div className="eth">
-            <a href="https://ethereum.org/en/" target="_blank" rel="noreferrer">
-              <img className="logo" src={ethLogo} alt="ethereum.org" />
-            </a>
-          </div>
-        </div>
-        <div className="content">
-          <div className="uniswap">
-            <a href="https://goodmorningnews.club" target="_blank" rel="noreferrer">
-              <img className="logo" src={gmnLogo} alt="gmn" />
-            </a>
-          </div>
-          <div className="aave">
-            <a href="https://www.banklesspublishing.xyz/" target="_blank" rel="noreferrer">
-              <img className="logo" src={bpLogo} alt="bankless publishing" />
-            </a>
-          </div>
-          <div className="eth">
-            <a href="https://blockchainlawyers.group/" target="_blank" rel="noreferrer">
-              <img className="logo" src={blgLogo} alt="ethereum.org" />
-            </a>
+
+          <h3 style={{ paddingLeft: "24px" }}>pub's prototypes...</h3>
+          <div className="content">
+            <div className="uniswap">
+              <a href="https://bank-of-ethereum-v2.vercel.app/" target="_blank" rel="noreferrer">
+                <img className="logo" src={boeLogo} alt="bank of ethereum" />
+              </a>
+            </div>
+            <div className="aave">
+              <a href="https://work-in-progress.vercel.app/" target="_blank" rel="noreferrer">
+                <img className="logo" src={mandalorLogo} alt="aave" />
+              </a>
+            </div>
+            <div className="eth">
+              <a href="https://react-with-ethereum.vercel.app/" target="_blank" rel="noreferrer">
+                <img className="logo" src={rweLogo} alt="ethereum.org" />
+              </a>
+            </div>
           </div>
         </div>
       </header>
