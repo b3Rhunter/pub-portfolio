@@ -22,8 +22,9 @@
 }
 
 .connect-button, .disconnect-button {
-  padding: 10px;
+  padding: 7px 14px;
   font-size: 18px;
+  font-family: monospace;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border: 1px solid #fff;
@@ -31,13 +32,17 @@
   margin: 5px;
   border-radius: 5px;
   position: fixed;
-  top: 10px;
+  top: 18px;
   right: 24px;
   transition: 0.2s;
 }
 
+.connect-button {
+  animation: flash 1s infinite;
+}
+
 .connect-button:hover, .disconnect-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   scale: 110%;
 }
 
@@ -205,9 +210,11 @@ input[type="text"] {
 
 .chatBtn {
   position: fixed;
-  top: 10px;
+  top: 24px;
   left: 24px;
   transition: 0.2s;
+  font-size: 18px;
+  font-family: monospace;
 }
 
 .chatBtn:hover {
@@ -394,5 +401,17 @@ input[type="text"] {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
   }
 }
