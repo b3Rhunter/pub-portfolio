@@ -241,34 +241,34 @@ function App() {
         )}
               <div className="content">
               <div className="uniswap">
-                <a href="https://app.uniswap.org/#/swap">
+                <a href="https://app.uniswap.org/#/swap" target="_blank" rel="noreferrer">
                 <img className="logo" src={uniswapLogo} alt="uniswap"/>
                 </a>
               </div>
               <div className="aave">
-                <a href="https://app.aave.com/?marketName=proto_mainnet">
+                <a href="https://app.aave.com/?marketName=proto_mainnet" target="_blank" rel="noreferrer">
                 <img className="logo" src={aaveLogo} alt="aave"/>
                 </a>
               </div>
               <div className="eth">
-                <a href="https://ethereum.org/en/">
+                <a href="https://ethereum.org/en/" target="_blank" rel="noreferrer">
                 <img className="logo" src={ethLogo} alt="ethereum.org"/>
                 </a>
               </div>
             </div>
             <div className="content">
               <div className="uniswap">
-                <a href="https://goodmorningnews.club">
+                <a href="https://goodmorningnews.club" target="_blank" rel="noreferrer">
                 <img className="logo" src={gmnLogo} alt="gmn"/>
                 </a>
               </div>
               <div className="aave">
-                <a href="https://www.banklesspublishing.xyz/">
+                <a href="https://www.banklesspublishing.xyz/" target="_blank" rel="noreferrer">
                 <img className="logo" src={bpLogo} alt="bankless publishing"/>
                 </a>
               </div>
               <div className="eth">
-                <a href="https://blockchainlawyers.group/">
+                <a href="https://blockchainlawyers.group/" target="_blank" rel="noreferrer">
                 <img className="logo" src={blgLogo} alt="ethereum.org"/>
                 </a>
               </div>
