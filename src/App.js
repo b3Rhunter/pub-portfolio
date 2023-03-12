@@ -13,7 +13,7 @@ import bpLogo from './imgs/bpLogo.png';
 import blgLogo from './imgs/blg.png';
 import boeLogo from './imgs/boeLogo.png';
 import mandalorLogo from './imgs/mandalorLogo.png';
-import rweLogo from './imgs/rweLogo.png';
+import etherQuest from './imgs/etherquest_logo.png'
 
 const CHAT_CONTRACT_ADDRESS = "0x85ecbF67C84171E87E78c1e6E77FF1288aeD3D49";
 const PNS_ADDRESS = "0xF0Ff09E226503Ec632e8C59184E2593cB051Bd3b";
@@ -377,8 +377,8 @@ function App() {
             </div>
             <div className="cont">
             <div className="eth">
-              <a href="https://react-with-ethereum.vercel.app/" target="_blank" rel="noreferrer">
-                <img className="logo" src={rweLogo} alt="ethereum.org" />
+              <a href="https://eth-rpg.vercel.app/" target="_blank" rel="noreferrer">
+                <img className="logo" src={etherQuest} alt="EtherQuest" />
               </a>
             </div>
             </div>
